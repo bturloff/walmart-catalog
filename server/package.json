@@ -1,0 +1,11 @@
+{
+  "name": "WalmartServices",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./server"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1"
+  },
+  "devDependencies": {}
+}
