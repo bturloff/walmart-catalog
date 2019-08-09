@@ -1,11 +1,20 @@
 {
-  "name": "WalmartServices",
+  "name": "walmart-server",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./server"
+    "dev-start": "babel --watch src -d dist --copy-files & nodemon dist/index.js",
+    "build": "babel src -d dist --copy-files",
+    "start": "npm run build && node dist/index.js"
   },
   "dependencies": {
-    "@hapi/hapi": "^18.3.1"
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/joi": "^15.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
+  }
 }
