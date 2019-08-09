@@ -34,9 +34,7 @@ const routes = [
           keyword: Joi.string()
             .label("Search text")
             .lowercase()
-            .error(err => err)
             .min(1)
-            .error(err => err)
             .max(20)
         },
         options: {

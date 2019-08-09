@@ -36,7 +36,7 @@ var routes = [{
   options: {
     validate: {
       params: {
-        keyword: _joi.default.string().label("Search text").lowercase().error(err => err).min(1).error(err => err).max(20)
+        keyword: _joi.default.string().label("Search text").lowercase().min(1).max(20)
       },
       options: {
         abortEarly: false
