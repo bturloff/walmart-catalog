@@ -4,7 +4,7 @@
   "scripts": {
     "dev-start": "babel --watch src -d dist --copy-files & nodemon dist/index.js",
     "build": "babel src -d dist --copy-files",
-    "start": "npm run build && node dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@hapi/hapi": "^18.3.1",

@@ -1,3 +1,4 @@
+/** @module All routes for Search API */
 import products from "./products.json";
 import Joi from "@hapi/joi";
 
@@ -7,9 +8,9 @@ import Joi from "@hapi/joi";
  * @param {object} request
  * @return {Boolean}
  */
-const getProductsHandler = request => {
+const searchProductsHandler = request => {
   return products.filter(p => {
-    const query = request.params.keyword.toLowerCase();
+    const query = request.params.keyword;
 
     const descriptionToSearch = (
       "" + p.longDescription ||
@@ -26,14 +27,29 @@ const routes = [
   {
     method: "GET",
     path: "/products/{keyword}",
-    handler: getProductsHandler,
+    handler: searchProductsHandler,
     options: {
       validate: {
         params: {
           keyword: Joi.string()
+            .label("Search text")
+            .lowercase()
+            .error(err => err)
             .min(1)
+            .error(err => err)
             .max(20)
+        },
+        options: {
+          abortEarly: false
+        },
+        failAction: (request, h, err) => {
+          err.output.payload.details = err.details;
+          return err;
         }
+      },
+      response: {
+        schema: Joi.array(),
+        failAction: "error"
       }
     }
   }

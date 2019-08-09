@@ -1,13 +1,14 @@
-import Hapi from "@hapi/hapi";
-import routes from "./routes";
-
 /**
  * Server config and startup
  */
+import Hapi from "@hapi/hapi";
+import routes from "./routes";
 
+/** Config options */
 const port = 3001;
 const host = "localhost";
 
+/**  Initialize server */
 const init = async () => {
   const server = Hapi.server({
     port,
@@ -17,7 +18,6 @@ const init = async () => {
   /** inject all routes into server object */
   server.route(routes);
 
-  /** Start server */
   await server.start();
   console.log("Server running on %ss", server.info.uri);
 };
@@ -28,5 +28,5 @@ process.on("unhandledRejection", err => {
   process.exit(1);
 });
 
-/** Initialize and start server */
+/** Start server */
 init();
