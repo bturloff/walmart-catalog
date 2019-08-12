@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 import PropTypes from "prop-types";
 
 function SearchInput({ handleKeyDown, handleUpdate, value, handleSubmit }) {

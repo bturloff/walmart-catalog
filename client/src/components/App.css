@@ -22,6 +22,7 @@ nav .brand-logo img {
 
 .card-image img {
   height: 250px;
+  object-fit: cover;
 }
 
 .card-content p {

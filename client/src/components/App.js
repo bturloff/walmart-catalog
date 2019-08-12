@@ -11,6 +11,12 @@ const url = "http://localhost:3001/products";
 class App extends React.Component {
   state = { searchField: "", products: [], didSearch: false };
 
+  componentDidUpdate() {
+    /** initialize image zoom logic on all elements with 'materialboxed' class */
+    var elems = document.querySelectorAll(".materialboxed");
+    window.M.Materialbox.init(elems, {});
+  }
+
   /**
    * Listening for "Enter" Key Stroke. Submit when pressed
    */

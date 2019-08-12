@@ -7,7 +7,6 @@ function Navbar(props) {
         <a href="*" className="brand-logo">
           <img src="walmartlogo.png" alt="" />
         </a>
-
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <a href="*">
