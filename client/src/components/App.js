@@ -41,7 +41,6 @@ class App extends React.Component {
     /** Search field is valid */
     Axios.get(`${url}/${searchField}`)
       .then(res => {
-        console.log("res", res);
         this.setState({ products: res.data });
       })
       .catch(err => {

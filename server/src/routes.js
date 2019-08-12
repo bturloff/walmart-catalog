@@ -33,7 +33,6 @@ const searchProductsHandler = request => {
     ).toLowerCase();
 
     return queryStrings.some(s => {
-      console.log(s);
       return descriptionToSearch.includes(s);
     });
   });

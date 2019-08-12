@@ -12,7 +12,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /** Environment */
 var env = process.env.NODE_ENV || "dev";
-console.log("env", env);
 /** Server Config options */
 
 var port = 3001;

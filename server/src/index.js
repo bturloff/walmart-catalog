@@ -6,7 +6,6 @@ import routes from "./routes";
 
 /** Environment */
 const env = process.env.NODE_ENV || "dev";
-console.log("env", env);
 
 /** Server Config options */
 const port = 3001;

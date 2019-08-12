@@ -38,7 +38,6 @@ var searchProductsHandler = request => {
   return _products.default.filter(p => {
     var descriptionToSearch = ("" + (p.longDescription || "") + (p.shortDescription || "") + (p.name || "")).toLowerCase();
     return queryStrings.some(s => {
-      console.log(s);
       return descriptionToSearch.includes(s);
     });
   });
