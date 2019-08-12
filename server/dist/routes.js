@@ -14,12 +14,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /** @module All routes for Search API */
 
 /**
+ * Some product ids given in the problem statement
+ * appear to be invalid. Only 8 were valid.
+ */
+
+/**
  * Returns the elements of the products array that
- * contain the requestor's provided query keyword
+ * contain the requestor's provided query keyword.
  * @param {object} request
  * @return {Boolean}
  */
 var searchProductsHandler = request => {
+  var keyword = request.params.keyword;
+  /** Return all products if keyword is empty */
+
+  if (keyword.length === 0) return _products.default;
+  /**
+   * Filter products by any word in the keyword that is contained
+   * in the product's short description, long description, or name
+   */
+
   var queryStrings = request.params.keyword.split(/\s+/);
   return _products.default.filter(p => {
     var descriptionToSearch = ("" + (p.longDescription || "") + (p.shortDescription || "") + (p.name || "")).toLowerCase();
@@ -39,7 +53,7 @@ var routes = [{
   options: {
     validate: {
       params: {
-        keyword: _joi.default.string().label("Search text").lowercase().min(1).max(20)
+        keyword: _joi.default.string().label("Search text").lowercase()
       },
       options: {
         abortEarly: false

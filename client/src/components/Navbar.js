@@ -3,7 +3,7 @@ import React from "react";
 function Navbar(props) {
   return (
     <nav>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper static">
         <a href="*" className="brand-logo">
           <img src="walmartlogo.png" alt="" />
         </a>

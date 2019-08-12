@@ -30,7 +30,16 @@ class App extends React.Component {
    * Handle search submission. Calls Search API for relavent product data
    */
   _handleSubmit = () => {
-    Axios.get(`${url}/${this.state.searchField}`)
+    const searchField = this.state.searchField;
+
+    /** Search field cannot be empty */
+    if (searchField.length === 0) {
+      this.setState({ didSearch: true, products: [] });
+      return;
+    }
+
+    /** Search field is valid */
+    Axios.get(`${url}/${searchField}`)
       .then(res => {
         console.log("res", res);
         this.setState({ products: res.data });
