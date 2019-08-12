@@ -1,0 +1,58 @@
+.outter-wrapper {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: #041e42;
+  margin-bottom: 40px;
+}
+
+nav .brand-logo img {
+  height: -webkit-fill-available;
+}
+
+.main {
+  margin: 0;
+}
+
+.card {
+  background-color: #378091;
+}
+
+.card-image img {
+  height: 250px;
+}
+
+.card-content p {
+  height: 200px;
+  overflow: hidden;
+}
+.card-title {
+  margin: 0;
+  padding: 24px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.alert .card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.alert ul:not(.browser-default) > li {
+  margin-left: 40px;
+  list-style-type: disc;
+}
+
+.input-field {
+  display: flex;
+}
+
+.input-field i {
+  position: absolute;
+  right: 0;
+  color: #4caf50;
+  cursor: pointer;
+}

@@ -10,7 +10,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-/** Config options */
+/** Environment */
+var env = process.env.NODE_ENV || "dev";
+console.log("env", env);
+/** Server Config options */
+
 var port = 3001;
 var host = "localhost";
 /**  Initialize server */
@@ -21,7 +25,10 @@ function () {
   var _ref = _asyncToGenerator(function* () {
     var server = _hapi.default.server({
       port,
-      host
+      host,
+      routes: {
+        cors: env === "dev" ? true : false
+      }
     });
     /** inject all routes into server object */
 

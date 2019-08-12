@@ -9,16 +9,19 @@ import Joi from "@hapi/joi";
  * @return {Boolean}
  */
 const searchProductsHandler = request => {
+  const queryStrings = request.params.keyword.split(/\s+/);
   return products.filter(p => {
-    const query = request.params.keyword;
-
     const descriptionToSearch = (
-      "" + p.longDescription ||
-      "" + p.shortDescription ||
-      ""
+      "" +
+      (p.longDescription || "") +
+      (p.shortDescription || "") +
+      (p.name || "")
     ).toLowerCase();
 
-    return descriptionToSearch.includes(query);
+    return queryStrings.some(s => {
+      console.log(s);
+      return descriptionToSearch.includes(s);
+    });
   });
 };
 

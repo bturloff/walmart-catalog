@@ -20,10 +20,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @return {Boolean}
  */
 var searchProductsHandler = request => {
+  var queryStrings = request.params.keyword.split(/\s+/);
   return _products.default.filter(p => {
-    var query = request.params.keyword;
-    var descriptionToSearch = ("" + p.longDescription || "" + p.shortDescription || "").toLowerCase();
-    return descriptionToSearch.includes(query);
+    var descriptionToSearch = ("" + (p.longDescription || "") + (p.shortDescription || "") + (p.name || "")).toLowerCase();
+    return queryStrings.some(s => {
+      console.log(s);
+      return descriptionToSearch.includes(s);
+    });
   });
 };
 /** Array of all routes for the Search API */

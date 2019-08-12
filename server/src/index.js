@@ -4,7 +4,11 @@
 import Hapi from "@hapi/hapi";
 import routes from "./routes";
 
-/** Config options */
+/** Environment */
+const env = process.env.NODE_ENV || "dev";
+console.log("env", env);
+
+/** Server Config options */
 const port = 3001;
 const host = "localhost";
 
@@ -12,7 +16,10 @@ const host = "localhost";
 const init = async () => {
   const server = Hapi.server({
     port,
-    host
+    host,
+    routes: {
+      cors: env === "dev" ? true : false
+    }
   });
 
   /** inject all routes into server object */
