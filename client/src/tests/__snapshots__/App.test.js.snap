@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Navbar should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`ProductCard renders with one produce 1`] = `ShallowWrapper {}`;
+
+exports[`SearchInput renders correctly 1`] = `ShallowWrapper {}`;
